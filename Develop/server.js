@@ -1,4 +1,3 @@
-// Import Express.js and Import built-in Node.js package 'path' to resolve path of files that are located on the server
 const express = require('express');
 const path = require('path');
 
