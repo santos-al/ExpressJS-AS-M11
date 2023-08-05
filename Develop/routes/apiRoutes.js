@@ -12,6 +12,7 @@ router.get('/notes', async (req, res) => {
       }
   });
 
+// add note to database
   router.post('/notes', async (req, res) => {
     try {
     const newNote = await store.addNote(req.body);
@@ -21,5 +22,6 @@ router.get('/notes', async (req, res) => {
         res.status(500).json(err);
     }
   });
+
 
 module.exports = router;

@@ -9,28 +9,46 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 class Store {
-    readNote() {
-        return readFileAsync('db.json');
-    }
-    writeNote() {
-        return writeFileAsync('db.json', json.stringify(note));
-    }
-    async getNotes() {
-      const notes = this.read();
+  read() {
+    return readFileAsync('db/db.json', 'utf8');
+  }
 
-      return [].concat(json.parse(notes))
-    }
-    async createNote() {
-        const newNote = { title, text, id: uuid() };
-        
-        let notes = await this.getNotes();
+  write(note) {
+    return writeFileAsync('db/db.json', JSON.stringify(note));
+  }
 
-        // Combine new note with a copy of old notes
-        let copyNotes = [...notes, newNote];
+  getNotes() {
+    return this.read().then((notes) => {
+      let parsedNotes;
 
-        return this.writeNote(copyNotes);
+      // If notes isn't an array or can't be turned into one, send back a new empty array
+      try {
+        parsedNotes = [].concat(JSON.parse(notes));
+      } catch (err) {
+        parsedNotes = [];
       }
-    }
+
+      return parsedNotes;
+    });
+  }
+
+  addNote(note) {
+    const { title, text } = note;
+
+    // Create the note
+    const newNote = { title, text, id: uuid() };
+
+    // get notes
+    return this.getNotes()
+      // create a copy of getNotes
+      .then((notes) => [...notes, newNote])
+      // add the new note to the lsit
+      .then((updatedNotes) => this.write(updatedNotes))
+      .then(() => newNote);
+  }
+}
 
 
-module.exports = Store;
+
+
+module.exports = new Store();
