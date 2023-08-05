@@ -16,4 +16,10 @@ class Store {
     writeNote() {
         return writeFileAsync('db.json', json.stringify(note));
     }
+    async getNotes() {
+      const notes = this.read();
+      return [].concat(json.parse(notes))
+    }
 }
+
+module.exports = Store;
