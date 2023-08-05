@@ -9,7 +9,7 @@ const { json } = require('express');
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
-class Note {
+class Store {
     readNote() {
         return readFileAsync('db.json');
     }
