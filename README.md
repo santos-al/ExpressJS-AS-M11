@@ -1,16 +1,44 @@
-# ExpressJS-AS-M11
-Note taking application
+# Note Taker
+  ## Description
+  This application allows users to take notes in their web browser. By using a local database you can save your notes and open them back up whenever you need. 
 
-GIVEN a note-taking application
-WHEN I open the Note Taker
-THEN I am presented with a landing page with a link to a notes page
-WHEN I click on the link to the notes page
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
-WHEN I enter a new note title and the note’s text
-THEN a Save icon appears in the navigation at the top of the page
-WHEN I click on the Save icon
-THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
-WHEN I click on an existing note in the list in the left-hand column
-THEN that note appears in the right-hand column
-WHEN I click on the Write icon in the navigation at the top of the page
-THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
+  ## Table of Contents
+
+  * [Installation](#installation)
+
+  * [Usage](#usage)
+
+  * [License](#license)
+
+  * [Contributing](#contributing)
+
+  * [Tests](#tests)
+
+  * [Questions](#questions)
+
+  ## Installation
+  ```
+  npm i
+  ```
+
+  ## Usage
+  by running npm run start you can begin using this application on your local host.
+
+  ## License
+  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 
+
+  (https://opensource.org/licenses/MIT)
+
+  ## Contributing
+  This application is complete
+
+  ## Tests
+  ```
+  No tests on this application
+  ```
+
+  ## Questions
+
+  If you have any questions about this project, please send me an email santosal2018@gmail.com. 
+  You can find more of my work at [santos-al](https://github.com/santos-al/).
+
