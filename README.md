@@ -1,44 +1,26 @@
-# Note Taker
-  ## Description
-  This application allows users to take notes in their web browser. By using a local database you can save your notes and open them back up whenever you need. 
+# Express.JS Note Taker App
 
-  ## Table of Contents
+## Description
+This Note-Taking Application is a web-based tool that enables users to create, save, and manage their notes directly in their web browser. It utilizes a local database to ensure that notes are securely stored and easily accessible whenever needed. Users can create new notes by entering a title and content, view all saved notes in a list format, and delete notes they no longer require. Built with <b>Express.js</b> and <b>Node.js</b>, the application leverages the file system for persistent storage, ensuring that data is retained even after closing the browser.
 
-  * [Installation](#installation)
 
-  * [Usage](#usage)
+## Table of Contents
 
-  * [License](#license)
+- [Description](#description)
+- [Home](#home)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
 
-  * [Contributing](#contributing)
+## Home
 
-  * [Tests](#tests)
+<img src="./Screenshots/view_note.png" alt="Home 1" width="400" />
 
-  * [Questions](#questions)
+<img src="./Screenshots/create_note.png" alt="Home 2" width="400" />
 
-  ## Installation
-  ```
-  npm i
-  ```
-
-  ## Usage
-  by running npm run start you can begin using this application on your local host.
-
-  ## License
-  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 
-
-  (https://opensource.org/licenses/MIT)
-
-  ## Contributing
-  This application is complete
-
-  ## Tests
-  ```
-  No tests on this application
-  ```
-
-  ## Questions
-
-  If you have any questions about this project, please send me an email santosal2018@gmail.com. 
-  You can find more of my work at [santos-al](https://github.com/santos-al/).
-
+## Installation
+```
+npm i
+```
+## Usage
+by running npm run start you can begin using this application on your local host.
