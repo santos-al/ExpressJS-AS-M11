@@ -42,13 +42,13 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
-// const deleteNote = (id) =>
-//   fetch(`/api/notes/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
+const deleteNote = (id) =>
+  fetch(`/api/notes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -83,17 +83,40 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
+  // Ensure the target is the delete button
+  if (!note.classList.contains('delete-note')) {
+    return;
+  }
+
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
 
+  // Check if the active note is the one being deleted
   if (activeNote.id === noteId) {
     activeNote = {};
   }
 
+  // Call the deleteNote function and handle the response
   deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
+    getAndRenderNotes(); // Refresh the note list
+    renderActiveNote();  // Clear the active note if it was deleted
+  }).catch(err => {
+    console.error('Error deleting note:', err); // Log any errors
   });
 };
+
+document.querySelectorAll('.delete-note').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent triggering the note view
+    const noteItem = e.target.parentElement; // Get the parent list item
+    const noteId = JSON.parse(noteItem.getAttribute('data-note')).id; // Get the note ID
+
+    deleteNote(noteId).then(() => {
+      noteItem.remove(); // Remove the note from the UI
+    }).catch(err => {
+      console.error('Error deleting note:', err);
+    });
+  });
+});
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {

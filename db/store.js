@@ -46,6 +46,12 @@ class Store {
       .then((updatedNotes) => this.write(updatedNotes))
       .then(() => newNote);
   }
+
+  deleteNote(id) {
+    return this.getNotes()
+      .then((notes) => notes.filter(note => note.id !== id)) // Filter out the note to delete
+      .then((filteredNotes) => this.write(filteredNotes)); // Write the updated notes back to the fil
+  }
 }
 
 

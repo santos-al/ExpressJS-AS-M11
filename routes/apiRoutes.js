@@ -23,5 +23,20 @@ router.get('/notes', async (req, res) => {
     }
   });
 
+// delete note from the database
+router.delete('/notes/:id', async (req, res) => {
+  try {
+    const noteId = req.params.id; 
+    const result = await store.deleteNote(noteId);
+
+    if (result) {
+      return res.status(204).send();
+    } else {
+      return res.status(404).json({ message: 'Note not found' });
+    }
+  } catch (err) {
+    res.status(500).json(err); // Handle any errors
+  }
+});
 
 module.exports = router;
