@@ -14,9 +14,9 @@ This Note-Taking Application is a web-based tool that enables users to create, s
 
 ## Home
 
-<img src="./Screenshots/view_note.png" alt="View Note" width="400" />
+<img src="./screenshots/view_note.png" alt="View Note" width="400" />
 
-<img src="./Screenshots/create_note.png" alt="Create Note" width="400" />
+<img src="./screenshots/create_note.png" alt="Create Note" width="400" />
 
 ## Features
 
